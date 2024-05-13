@@ -1,4 +1,4 @@
-package com.example.springboot.config;
+package com.example.springboot.bigtask.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
