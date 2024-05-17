@@ -3,8 +3,6 @@ package com.example.springboot.task47_49.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "postsrest")
 public class Posts {
@@ -21,16 +19,16 @@ public class Posts {
 
 
     @ManyToOne
-    private Users users;
+    private UsersTask47 usersTask47;
 
     public Posts() {
     }
 
-    public Posts(Integer id, Integer usersId, Integer price, Users user) {
+    public Posts(Integer id, Integer usersId, Integer price, UsersTask47 user) {
         this.id = id;
         this.usersId = usersId;
         this.price = price;
-        this.users = user;
+        this.usersTask47 = user;
     }
 
     public Posts(Integer id, Integer usersId, Integer price) {
@@ -63,12 +61,12 @@ public class Posts {
         this.price = price;
     }
 
-    public Users getUser() {
-        return users;
+    public UsersTask47 getUser() {
+        return usersTask47;
     }
 
-    public void setUser(Users users) {
-        this.users = users;
+    public void setUser(UsersTask47 usersTask47) {
+        this.usersTask47 = usersTask47;
     }
 
     @Override

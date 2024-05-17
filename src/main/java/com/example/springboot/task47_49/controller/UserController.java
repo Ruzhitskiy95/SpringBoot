@@ -1,9 +1,9 @@
 package com.example.springboot.task47_49.controller;
 
 import com.example.springboot.task47_49.dao.PostsDao;
-import com.example.springboot.task47_49.dao.UsersDao;
+import com.example.springboot.task47_49.dao.UsersTask47Dao;
 import com.example.springboot.task47_49.model.Posts;
-import com.example.springboot.task47_49.model.Users;
+import com.example.springboot.task47_49.model.UsersTask47;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -26,7 +26,7 @@ public class UserController {
     PostsDao postsDao;
 
     @Autowired
-    UsersDao usersDao;
+    UsersTask47Dao usersTask47Dao;
 
 
     @GetMapping("/getFindById")
@@ -43,8 +43,8 @@ public class UserController {
     }
 
     @GetMapping("/getUsersInfoWithPostMore500")
-    public  ResponseEntity<List<Users>> getUsersInfoWithPostMore500(){
-        List<Users> users = usersDao.getUsers();
+    public  ResponseEntity<List<UsersTask47>> getUsersInfoWithPostMore500(){
+        List<UsersTask47> users = usersTask47Dao.getUsers();
         System.out.println(users.toString());
         return ResponseEntity.ok(users);
     }

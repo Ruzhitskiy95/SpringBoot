@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "usersrest")
-public class Users {
+public class UsersTask47 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,21 +17,21 @@ public class Users {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "usersTask47")
     private List<Posts> posts;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "usersTask47")
     private List<UserSubscriptions> userSubscriptions;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "usersTask47")
     private List<PostView> postViews;
 
-    public Users() {
+    public UsersTask47() {
     }
 
-    public Users(Integer id, String name, List<Posts> posts, List<UserSubscriptions> userSubscriptions, List<PostView> postViews) {
+    public UsersTask47(Integer id, String name, List<Posts> posts, List<UserSubscriptions> userSubscriptions, List<PostView> postViews) {
         this.id = id;
         this.name = name;
         this.posts = posts;
@@ -39,7 +39,7 @@ public class Users {
         this.postViews = postViews;
     }
 
-    public Users(Integer id, String name) {
+    public UsersTask47(Integer id, String name) {
         this.id = id;
         this.name = name;
     }

@@ -1,7 +1,7 @@
 package com.example.springboot.bigtask.service;
 
-import com.example.springboot.bigtask.dao.UsersSSDao;
-import com.example.springboot.bigtask.model.UsersSS;
+import com.example.springboot.bigtask.dao.UsersDao;
+import com.example.springboot.bigtask.model.Users;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,22 +10,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
-    private final UsersSSDao usersSSDao;
+    private final UsersDao usersDao;
 
-    public UserService(UsersSSDao usersSSDao) {
-        this.usersSSDao = usersSSDao;
+    public UserService(UsersDao usersDao) {
+        this.usersDao = usersDao;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UsersSS user = usersSSDao.findUsersSSByUsername(username);
+        Users user = usersDao.findUsersSSByUsername(username);
         if (user == null){
             throw new UsernameNotFoundException(username);
         }
         return org.springframework.security.core.userdetails.User
                 .withUsername(user.getUsername())
                 .password(user.getPassword())
-                .roles(user.getRolesSSES().get(0).getRole())
+                .roles(user.getRoles().get(0).getRole())
                 .build();
 
     }

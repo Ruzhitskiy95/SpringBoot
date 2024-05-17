@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "usersss")
-public class UsersSS {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,56 +27,46 @@ public class UsersSS {
 
     private Integer kol;
 
-
-    @OneToMany(mappedBy = "usersSS")
-    private List<TaskSS> taskSSES;
+    @JsonIgnore
+    @OneToMany(mappedBy = "users", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Task> tasks;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @CollectionTable(name = "usersss_rolesss")
-    private List<RolesSS> rolesSSES;
+    private List<Roles> roles;
 
 
 
-    public UsersSS() {
+    public Users() {
     }
 
-    public UsersSS(Integer id, String username, String password, String name, String department, List<TaskSS> taskSSES, List<RolesSS> rolesSSES) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.department = department;
-        this.taskSSES = taskSSES;
-        this.rolesSSES = rolesSSES;
-    }
-
-    public UsersSS(Integer id, String username, String password, String name, String department, List<TaskSS> taskSSES) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.department = department;
-        this.taskSSES = taskSSES;
-    }
-
-    public UsersSS(Integer id, String username, String password, String name, String department) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.department = department;
-    }
-
-    public UsersSS(Integer id, String username, String password, String name, String department, Integer kol, List<TaskSS> taskSSES, List<RolesSS> rolesSSES) {
+    public Users(Integer id, String username, String password, String name, String department, Integer kol, List<Task> tasks, List<Roles> roles) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
         this.department = department;
         this.kol = kol;
-        this.taskSSES = taskSSES;
-        this.rolesSSES = rolesSSES;
+        this.tasks = tasks;
+        this.roles = roles;
+    }
+
+    public Users(Integer id, String username, String password, String name, String department) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.department = department;
+    }
+
+    public Users(Integer id, String username, String password, String name, String department, Integer kol) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.department = department;
+        this.kol = kol;
     }
 
     public Integer getId() {
@@ -119,22 +109,6 @@ public class UsersSS {
         this.department = department;
     }
 
-    public List<TaskSS> getTaskSSES() {
-        return taskSSES;
-    }
-
-    public void setTaskSSES(List<TaskSS> taskSSES) {
-        this.taskSSES = taskSSES;
-    }
-
-    public List<RolesSS> getRolesSSES() {
-        return rolesSSES;
-    }
-
-    public void setRolesSSES(List<RolesSS> rolesSSES) {
-        this.rolesSSES = rolesSSES;
-    }
-
     public Integer getKol() {
         return kol;
     }
@@ -143,16 +117,33 @@ public class UsersSS {
         this.kol = kol;
     }
 
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public List<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
-        return "UsersSS{" +
+        return "Users{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", department='" + department + '\'' +
-                ", taskSSES=" + taskSSES +
-//                ", rolesSSES=" + rolesSSES +
+                ", kol=" + kol +
+//                ", tasks=" + tasks +
+//                ", roles=" + roles +
                 '}';
     }
 }

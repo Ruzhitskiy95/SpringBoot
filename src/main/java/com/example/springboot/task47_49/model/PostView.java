@@ -18,7 +18,7 @@ public class PostView {
     private Integer views;
 
     @ManyToOne
-    private Users users;
+    private UsersTask47 usersTask47;
 
     public PostView() {
     }
@@ -29,11 +29,11 @@ public class PostView {
         this.views = views;
     }
 
-    public PostView(Integer id, Integer postId, Integer views, Users users) {
+    public PostView(Integer id, Integer postId, Integer views, UsersTask47 usersTask47) {
         this.id = id;
         this.postId = postId;
         this.views = views;
-        this.users = users;
+        this.usersTask47 = usersTask47;
     }
 
     public Integer getId() {
@@ -60,12 +60,12 @@ public class PostView {
         this.views = views;
     }
 
-    public Users getUsers() {
-        return users;
+    public UsersTask47 getUsers() {
+        return usersTask47;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUsers(UsersTask47 usersTask47) {
+        this.usersTask47 = usersTask47;
     }
 
     @Override

@@ -18,16 +18,16 @@ public class UserSubscriptions {
     private Integer subscriptions;
 
     @ManyToOne
-    private Users users;
+    private UsersTask47 usersTask47;
 
     public UserSubscriptions() {
     }
 
-    public UserSubscriptions(Integer id, Integer userId, Integer subscriptions, Users users) {
+    public UserSubscriptions(Integer id, Integer userId, Integer subscriptions, UsersTask47 usersTask47) {
         this.id = id;
         this.userId = userId;
         this.subscriptions = subscriptions;
-        this.users = users;
+        this.usersTask47 = usersTask47;
     }
 
     public UserSubscriptions(Integer id, Integer userId, Integer subscriptions) {
@@ -60,12 +60,12 @@ public class UserSubscriptions {
         this.subscriptions = subscriptions;
     }
 
-    public Users getUsers() {
-        return users;
+    public UsersTask47 getUsers() {
+        return usersTask47;
     }
 
-    public void setUser(Users users) {
-        this.users = users;
+    public void setUser(UsersTask47 usersTask47) {
+        this.usersTask47 = usersTask47;
     }
 
     @Override

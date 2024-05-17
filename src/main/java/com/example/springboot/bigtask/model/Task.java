@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "taskss")
-public class TaskSS {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,23 +23,23 @@ public class TaskSS {
 
 
     @JsonIgnore
-    @ManyToOne
-    private UsersSS usersSS;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Users users;
 
-    public TaskSS() {
+    public Task() {
     }
 
-    public TaskSS(Integer id, String descriptions, Date createdData, UsersSS usersSS) {
+    public Task(Integer id, String descriptions, Date createdData) {
         this.id = id;
         this.descriptions = descriptions;
         this.createdData = createdData;
-        this.usersSS = usersSS;
     }
 
-    public TaskSS(Integer id, String descriptions, Date createdData) {
+    public Task(Integer id, String descriptions, Date createdData, Users users) {
         this.id = id;
         this.descriptions = descriptions;
         this.createdData = createdData;
+        this.users = users;
     }
 
     public Integer getId() {
@@ -66,21 +66,21 @@ public class TaskSS {
         this.createdData = createdData;
     }
 
-    public UsersSS getUsersSS() {
-        return usersSS;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsersSS(UsersSS usersSS) {
-        this.usersSS = usersSS;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     @Override
     public String toString() {
-        return "TaskSS{" +
+        return "Task{" +
                 "id=" + id +
                 ", descriptions='" + descriptions + '\'' +
                 ", createdData=" + createdData +
-//                ", usersSS=" + usersSS +
+//                ", users=" + users +
                 '}';
     }
 }

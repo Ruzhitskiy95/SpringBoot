@@ -1,6 +1,6 @@
 package com.example.springboot.bigtask.dto;
 
-import com.example.springboot.bigtask.model.TaskSS;
+import com.example.springboot.bigtask.model.Task;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,12 +12,12 @@ public class InfoAndDepartmentDTO {
 
     private String department;
 
-    private List<TaskSS> taskSSES;
+    private List<Task> taskSpringSecurities;
 
-    public InfoAndDepartmentDTO(String username, String department, List<TaskSS> taskSSES) {
+    public InfoAndDepartmentDTO(String username, String department, List<Task> taskSpringSecurities) {
         this.username = username;
         this.department = department;
-        this.taskSSES = taskSSES;
+        this.taskSpringSecurities = taskSpringSecurities;
     }
 
     public InfoAndDepartmentDTO() {
@@ -40,12 +40,12 @@ public class InfoAndDepartmentDTO {
         this.department = department;
     }
 
-    public List<TaskSS> getTaskSSES() {
-        return taskSSES;
+    public List<Task> getTaskSSES() {
+        return taskSpringSecurities;
     }
 
-    public void setTaskSSES(List<TaskSS> taskSSES) {
-        this.taskSSES = taskSSES;
+    public void setTaskSSES(List<Task> taskSpringSecurities) {
+        this.taskSpringSecurities = taskSpringSecurities;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class InfoAndDepartmentDTO {
         return "ManagerInfoAndDepartmentDTO{" +
                 ", username='" + username + '\'' +
                 ", department='" + department + '\'' +
-                ", taskSSES=" + taskSSES +
+                ", taskSSES=" + taskSpringSecurities +
                 '}';
     }
 }

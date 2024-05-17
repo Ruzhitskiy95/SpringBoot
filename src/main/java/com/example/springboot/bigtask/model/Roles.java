@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "rolesss")
-public class RolesSS {
+public class Roles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,20 +17,20 @@ public class RolesSS {
     private String role;
 
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "rolesSSES")
-    private List<UsersSS> usersSSES;
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "roles",cascade = CascadeType.ALL)
+    private List<Users> users;
 
 
-    public RolesSS() {
+    public Roles() {
     }
 
-    public RolesSS(Integer rolesId, String role, List<UsersSS> usersSSES) {
+    public Roles(Integer rolesId, String role, List<Users> usersSpringSecurities) {
         this.rolesId = rolesId;
         this.role = role;
-        this.usersSSES = usersSSES;
+        this.users = usersSpringSecurities;
     }
 
-    public RolesSS(Integer rolesId, String role) {
+    public Roles(Integer rolesId, String role) {
         this.rolesId = rolesId;
         this.role = role;
     }
@@ -51,12 +51,12 @@ public class RolesSS {
         this.role = role;
     }
 
-    public List<UsersSS> getUsersSSES() {
-        return usersSSES;
+    public List<Users> getUsersSSES() {
+        return users;
     }
 
-    public void setUsersSSES(List<UsersSS> usersSSES) {
-        this.usersSSES = usersSSES;
+    public void setUsersSSES(List<Users> usersSpringSecurities) {
+        this.users = usersSpringSecurities;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class RolesSS {
         return "RolesSS{" +
                 "rolesId=" + rolesId +
                 ", role='" + role + '\'' +
-                ", usersSSES=" + usersSSES +
+                ", usersSSES=" + users +
                 '}';
     }
 }

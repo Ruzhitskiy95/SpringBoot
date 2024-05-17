@@ -1,48 +1,48 @@
 package com.example.springboot.bigtask.dto;
 
-import com.example.springboot.bigtask.model.TaskSS;
-import com.example.springboot.bigtask.model.UsersSS;
+import com.example.springboot.bigtask.model.Task;
+import com.example.springboot.bigtask.model.Users;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ConvertEntityDTO {
 
-    public TasksEngineerDTO mapToTaskEngineerDTO (TaskSS taskSS){
+    public TasksEngineerDTO mapToTaskEngineerDTO (Task task){
         TasksEngineerDTO tasksEngineerDTO = new TasksEngineerDTO();
-        tasksEngineerDTO.setCreatedData(taskSS.getCreatedData());
-        tasksEngineerDTO.setDescriptions(taskSS.getDescriptions());
+        tasksEngineerDTO.setCreatedData(task.getCreatedData());
+        tasksEngineerDTO.setDescriptions(task.getDescriptions());
         return tasksEngineerDTO;
     }
 
 
-    public UserManagerDepartmentDTO mapToUserManagerDepartmentDTO (UsersSS usersSS){
+    public UserManagerDepartmentDTO mapToUserManagerDepartmentDTO (Users users){
         UserManagerDepartmentDTO userManagerDepartmentDTO = new UserManagerDepartmentDTO();
-        userManagerDepartmentDTO.setDepartment(usersSS.getDepartment());
-        userManagerDepartmentDTO.setUsername(usersSS.getUsername());
-        userManagerDepartmentDTO.setKol(usersSS.getKol());
+        userManagerDepartmentDTO.setDepartment(users.getDepartment());
+        userManagerDepartmentDTO.setUsername(users.getUsername());
+        userManagerDepartmentDTO.setKol(users.getKol());
         return userManagerDepartmentDTO;
     }
 
-    public UserManagerInfoDTO mapToUserManagerInfoDTO (UsersSS usersSS){
+    public UserManagerInfoDTO mapToUserManagerInfoDTO (Users users){
         UserManagerInfoDTO userManagerInfoDTO = new UserManagerInfoDTO();
-        userManagerInfoDTO.setUsername(usersSS.getUsername());
-        userManagerInfoDTO.setDepartment(usersSS.getDepartment());
-        userManagerInfoDTO.setTaskSSES(usersSS.getTaskSSES());
+        userManagerInfoDTO.setUsername(users.getUsername());
+        userManagerInfoDTO.setDepartment(users.getDepartment());
+        userManagerInfoDTO.setTaskSSES(users.getTasks());
         return userManagerInfoDTO;
     }
 
-    public UsersDepartmentByMounthDTO mapToTaskDepartmentByMounth  (UsersSS usersSS){
+    public UsersDepartmentByMounthDTO mapToTaskDepartmentByMounth  (Users users){
         UsersDepartmentByMounthDTO usersDepartmentByMounthDTO = new UsersDepartmentByMounthDTO();
-        usersDepartmentByMounthDTO.setDepart(usersSS.getDepartment());
-        usersDepartmentByMounthDTO.setKol(usersSS.getKol());
+        usersDepartmentByMounthDTO.setDepart(users.getDepartment());
+        usersDepartmentByMounthDTO.setKol(users.getKol());
         return usersDepartmentByMounthDTO;
     }
 
-    public InfoAndDepartmentDTO mapToManagerInfoAndDepartmentDTO (UsersSS usersSS){
+    public InfoAndDepartmentDTO mapToManagerInfoAndDepartmentDTO (Users users){
         InfoAndDepartmentDTO infoAndDepartmentDTO = new InfoAndDepartmentDTO();
-        infoAndDepartmentDTO.setDepartment(usersSS.getDepartment());
-        infoAndDepartmentDTO.setTaskSSES(usersSS.getTaskSSES());
-        infoAndDepartmentDTO.setUsername(usersSS.getUsername());
+        infoAndDepartmentDTO.setDepartment(users.getDepartment());
+        infoAndDepartmentDTO.setTaskSSES(users.getTasks());
+        infoAndDepartmentDTO.setUsername(users.getUsername());
         return infoAndDepartmentDTO;
     }
 
